@@ -14,7 +14,7 @@ function sortArray(people:Peoples[]):Peoples[]  {
     // Создаем копию массива, чтобы не изменять исходный
     const sortedPeoples = [...peoples];
     // Сортируем копию по возрастанию возраста
-    return sortedPeoples.sort((a, b) => a.age - b.age);
+    return sortedPeoples.sort((a:Peoples, b:Peoples):number => a.age - b.age);
 }
 
 const sortedArray = sortArray(peoples);
@@ -69,11 +69,12 @@ const products:Product[] = [
 
   ];
 
-  function filterProduct(products:Product[]){
-    return products.filter((product:Product)=>product.price <1000);
+  function filterProduct(products:Product[], targetPrice:number):Product[]{
+    return products.filter((product:Product):boolean=>product.price <targetPrice);
   }
 
-  console.log(filterProduct(products));
+  console.log("====================================")
+  console.log(filterProduct(products, 10000));
 
   // Задача 3: Поиск объекта по значению свойства Текст задачи: У вас есть массив объектов, представляющих книги. Напишите функцию, которая находит книгу по её названию.
 
@@ -179,6 +180,8 @@ const orders: Order[] = [
   { id: 1, status: "в обработке" },
   { id: 2, status: "доставлено" },
   { id: 3, status: "отменено" },
+  { id: 4, status: "отменено" },
+
   // Добавьте другие заказы по аналогии
 ];
 

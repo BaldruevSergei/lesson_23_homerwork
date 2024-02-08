@@ -52,10 +52,11 @@ const products = [
         description: "Большой холодильник с разделителями для продуктов питания.",
     },
 ];
-function filterProduct(products) {
-    return products.filter((product) => product.price < 1000);
+function filterProduct(products, targetPrice) {
+    return products.filter((product) => product.price < targetPrice);
 }
-console.log(filterProduct(products));
+console.log("====================================");
+console.log(filterProduct(products, 10000));
 ;
 const books = [
     {
@@ -118,5 +119,18 @@ function upgrateMark(name, grade) {
     }
 }
 console.log(upgrateMark("Мария", 2));
+console.log(students);
+// Создание массива заказов с различными статусами
+const orders = [
+    { id: 1, status: "в обработке" },
+    { id: 2, status: "доставлено" },
+    { id: 3, status: "отменено" },
+    { id: 4, status: "отменено" },
+    // Добавьте другие заказы по аналогии
+];
+console.log(orders);
+function findOrder(status) {
+    return orders.reduce((totalOrder, order) => totalOrder + (order.status === status ? 1 : 0), 0);
+}
+console.log(findOrder("отменено"));
 export {};
-
